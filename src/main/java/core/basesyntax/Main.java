@@ -5,9 +5,9 @@ import core.basesyntax.supplier.FigureSupplier;
 
 public class Main {
 
-    static final int FIGURES_COUNT = 6;
+    private static final int FIGURES_COUNT = 6;
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         FigureSupplier supplier = new FigureSupplier();
         Figure[] figures = new Figure[FIGURES_COUNT];
         for (int i = 0; i < figures.length / 2; i++) {
