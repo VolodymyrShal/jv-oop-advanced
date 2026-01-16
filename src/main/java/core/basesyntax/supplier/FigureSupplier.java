@@ -21,13 +21,17 @@ public class FigureSupplier {
         FigureType randomFigure = types[random.nextInt(types.length)];
 
         double val = random.nextDouble(1, MAX_RANDOM_SIZE);
+        double width = val + 2;
+        double secondLeg = val + 3;
+        double baseA = val + 2;
+        double baseB = val + 1;
 
         return switch (randomFigure) {
             case SQUARE -> new Square(color, val);
-            case RECTANGLE -> new Rectangle(color, val, val + 2);
-            case RIGHT_TRIANGLE -> new RightTriangle(color, val, val + 3);
+            case RECTANGLE -> new Rectangle(color, val, width);
+            case RIGHT_TRIANGLE -> new RightTriangle(color, val, secondLeg);
             case CIRCLE -> new Circle(color, val);
-            case ISOSCELES_TRAPEZOID -> new IsoscelesTrapezoid(color, val, val + 2, val + 1);
+            case ISOSCELES_TRAPEZOID -> new IsoscelesTrapezoid(color, val, baseA, baseB);
         };
     }
 
