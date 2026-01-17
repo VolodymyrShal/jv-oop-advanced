@@ -17,7 +17,7 @@ public class Square extends Figure {
     public void draw() {
         System.out.println(
                 "Figure: Square, area: " + getArea() + " sq. units "
-                        + "side " + side
-                        + " color " + getColor());
+                        + "side: " + side + " units,"
+                        + " color: " + getColor());
     }
 }

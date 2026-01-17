@@ -11,6 +11,7 @@ import java.util.Random;
 public class FigureSupplier {
     private static final double MAX_RANDOM_SIZE = 11;
     private static final double DEFAULT_RADIUS = 10;
+    private static final int MIN_RANDOM_SIZE = 1;
 
     private final Random random = new Random();
     private final ColorSupplier supplier = new ColorSupplier();
@@ -20,22 +21,19 @@ public class FigureSupplier {
         FigureType[] types = FigureType.values();
         FigureType randomFigure = types[random.nextInt(types.length)];
 
-        double val = random.nextDouble(1, MAX_RANDOM_SIZE);
-        double width = val + 2;
-        double secondLeg = val + 3;
-        double baseA = val + 2;
-        double baseB = val + 1;
-
         return switch (randomFigure) {
-            case SQUARE -> new Square(color, val);
-            case RECTANGLE -> new Rectangle(color, val, width);
-            case RIGHT_TRIANGLE -> new RightTriangle(color, val, secondLeg);
-            case CIRCLE -> new Circle(color, val);
-            case ISOSCELES_TRAPEZOID -> new IsoscelesTrapezoid(color, val, baseA, baseB);
+            case SQUARE -> new Square(color, getRandomSize());
+            case RECTANGLE -> new Rectangle(color, getRandomSize(), getRandomSize());
+            case RIGHT_TRIANGLE -> new RightTriangle(color, getRandomSize(), getRandomSize());
+            case CIRCLE -> new Circle(color, getRandomSize());
+            case ISOSCELES_TRAPEZOID -> new IsoscelesTrapezoid(color, getRandomSize(), getRandomSize(), getRandomSize());
         };
     }
 
     public Figure getDefaultFigure() {
         return new Circle(Color.WHITE.name().toLowerCase(), DEFAULT_RADIUS);
+    }
+    private double getRandomSize() {
+        return random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE);
     }
 }

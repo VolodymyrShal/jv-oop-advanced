@@ -20,8 +20,8 @@ public class Rectangle extends Figure {
         System.out.println(
                 "Figure: Rectangle, area: "
                         + getArea() + " sq. units "
-                        + "length " + length
-                        + " width " + width
-                        + " color " + getColor());
+                        + "length: " + length + " units,"
+                        + " width: " + width + " units,"
+                        + " color: " + getColor());
     }
 }
